@@ -7,7 +7,7 @@ pipeline{
     stages{
         stage("Git Checkout"){
             steps{
-                git credentialsId: 'javahome', url: 'https://github.com/chinna421/code.git'
+                git credentialsId: 'JenkinsFile', url: 'https://github.com/chinna421/code.git'
             }
         }
         stage("Maven Build"){
@@ -16,7 +16,7 @@ pipeline{
                 sh "mv target/*.war target/myweb.war"
             }
         }
-        stage("Rajashekar"){
+        stage("deploy-dev"){
             steps{
                 sshagent(['tomcat-new']) {
                 sh """
