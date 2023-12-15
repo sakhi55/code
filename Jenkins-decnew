@@ -13,7 +13,7 @@ pipeline{
                 sh "mv target/*.war target/myweb.war"
             }
         }
-        sshagent(["tomcat-new"]) {
+        sshagent(['tomcat-new']) {
             steps{
                 sshagent(['tomcat-new']) {
                 sh """
