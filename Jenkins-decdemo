@@ -9,8 +9,9 @@ pipeline{
         }
         stage("Maven Build"){
             steps{
-                sh "mvn clean package"
-                sh "mv target/*.war target/myweb.war"
+                def mavenHome= tool name: "Maven-3.9.6", type: "maven"
+                def mavenCMD= "${mavenHome}/bin/mvn"
+                sh"${mavenCMD} clean package"
             }
          }
     }
